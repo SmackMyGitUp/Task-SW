@@ -27,9 +27,9 @@ Step 2: Verify that all 4 fields are required fields.
 
 ====
 
-Step 3: Verify that the Username field requires 3-20 alphanumeric characters.
+Step 3: Verify that the Username field requires between 3 and 20 alphanumeric characters.
 
---Expected result: The Username field should require a value of 3-20 alphanumeric characters.
+--Expected result: The Username field should require a value with a length from 3 to 20 alphanumeric characters.
 
 ====
 
@@ -62,6 +62,7 @@ Step 7: Verify that the Submit button submits the form.
 Step 8: Populate all fields with valid values except for one and click Submit. Repeat for all 4 fields.
 
 --Expected result: All field requirements work as expected and notify the user with respecting error messages. The form can not be submitted.
+
 
 =========================
 
@@ -96,6 +97,13 @@ Step 3: Empty all fields and click Submit. Verify that all named fields display 
 Step 4: Verify that fields with errors are highlighted.
 
 --Expected result: Fields where validation has failed should be highlighted.
+
+====
+
+Step 5: Populate the error fields with valid values. Verify that the fields are no longer highlighted and errors are no longer displayed.
+
+--Expected result: Once fields are populated with valid values, the error messages and highlights should be reverted.
+
 
 =========================
 
@@ -161,7 +169,7 @@ test@test - It doesn't suggest that there should be a TLD at the end of the valu
 
 ..@test.com - Both, field and pop-up validation don't follow RFC 3696 regarding the local part starting and ending with a period. Nothing is said about more than 2 consecutive periods either.
 
-Writing 'test@test.c', clicking Submit and then deleting 'c' so the value becomes 'test@test.' still prevents the user from registering, but only invokes the pop-up validation. The field isn't highlited.
+Writing 'test@test.c', clicking Submit and then deleting 'c' so the value becomes 'test@test.' still prevents the user from registering, but only invokes the pop-up validation. The error message isn't displayed.
 
 ====
 
@@ -186,7 +194,7 @@ Steps to reproduce:
 
 Expected result: The form should fill the maximum available screen space for ease of use. The user should not be able to scroll the page.
 
-Actual result: The page can be scrolled by dragging up and down which makes it easy to misallign the form and the user might click on the wrong field. 
+Actual result: The page can be scrolled by dragging up and down which makes it easy to misallign the form and allow the user to click on the wrong field. 
 
 ====
 
@@ -249,9 +257,15 @@ Task 5: Anything You would improve/specify more in the existing requirements
 
 =========================================================
 
-Improvement 1: As mentioned in TC1, requirements should specify that the password field requires alphanumeric characters, not "just characters", similar to the Username field. Even further, I recommend the requirements are reworked to allow any characters for usernames and passwords. Going the alphanumeric route, as mentioned in issue 4, heavily limits users to a comparatively small subset of all the possible passwords. Why can't I have my password in Chinese? I, for one, believe that everyone should allow sentences for passwords. Not only does it make for tougher to crack passwords, they're easier to remember. See this popular https://xkcd.com/936/
+Improvement 1: As mentioned in TC1, requirements should specify that the password field requires alphanumeric characters, not "just characters", similar to the Username field. Even further, I recommend the requirements are reworked to allow any characters for usernames and passwords. Going the alphanumeric route, as mentioned in issue 4, heavily limits users to a comparatively small subset of all the possible passwords. Why can't I have my password in Chinese? I, for one, believe that everyone should allow sentences for passwords. Not only does it make for tougher to crack passwords, they're easier to remember. See this popular comic: https://xkcd.com/936/
+
+====
 
 Improvement 2: The requirements should specify that the user is actually registered in some form of a database, not just redirected to the home page with a success message. The message should be specified to be better integrated into the homepage, not as mentioned in Issue 2.
+
+====
+
+Improvement 3: The registered issues, such as Issue 5 and 6, raise talking points which should be considered for implementation as requirements. The less strict the requirements, the more open they are to interpretation by all involved parties, the less shared the understanding, the worse the processes, the worse the end result. 
 
 
 =========================================================
